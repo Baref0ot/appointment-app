@@ -51,6 +51,9 @@ export class AppointmentListComponent {
 
   deleteAppointment(index:number) {
     this.appointments.splice(index,1);
+    
+    // save new list of modified appointments to local browser cache
+      localStorage.setItem("appointments", JSON.stringify(this.appointments));
   }// end deletetAppointment
 
 }
