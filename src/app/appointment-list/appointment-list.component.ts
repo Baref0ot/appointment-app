@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Appointment } from '../models/appointment';
+import { OnInit } from '@angular/core'; // on component initialization lifecycle hook
 
 @Component({
   selector: 'app-appointment-list',
@@ -7,8 +8,8 @@ import { Appointment } from '../models/appointment';
   styleUrls: ['./appointment-list.component.css']
 })
 
-export class AppointmentListComponent {
-  
+export class AppointmentListComponent implements OnInit{
+    
   // properties
   newAppointmentTitle: string = "";
   newAppointmentDate: Date = new Date();
@@ -16,6 +17,21 @@ export class AppointmentListComponent {
 
 
   // methods
+
+  ngOnInit(): void {
+
+    // check to see if we have any appointments stored in cache memory
+    let savedAppointments = localStorage.getItem("appointments");
+
+    if(savedAppointments){
+      this.appointments = JSON.parse(savedAppointments); // deserialize into typescript object and save to appointments array.
+    }else{
+      this.appointments = []; 
+    }
+
+  }// end ngOnInit
+
+
   generateGuid(): string {
   
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -54,6 +70,7 @@ export class AppointmentListComponent {
 
     // save new list of modified appointments to local browser cache
       localStorage.setItem("appointments", JSON.stringify(this.appointments));
+
   }// end deletetAppointment
 
 }
