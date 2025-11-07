@@ -39,6 +39,10 @@ export class AppointmentListComponent {
       // after the appointment is added clear the form fields in the template
       this.newAppointmentTitle = "";
       this.newAppointmentDate = new Date();
+
+      // save appointments to local browser cache
+      localStorage.setItem("appointments", JSON.stringify(this.appointments));
+
     }else{
       alert("Please provide valid appointment details.");
     }
