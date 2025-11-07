@@ -1,8 +1,15 @@
+<!-- making use of two-way data binding 
 
-<!-- an example of one-way data binding. {{}} you can access the class properties
-     defined you associated component class. from compoent -> html (template).
--->
+    -- to do so:
+    -- 1. import FormsModule in app.module.ts
+    -- 2. add FormsModule to imports array in app.module.ts - this allows us to use FormsModule features in all of the imported components in that module.
+    -- 3. use [(ngModel)] directive (feature available in FormsModule) in the input element to bind the input value to a component property.
+ -->
 
-<p>{{appointment.id}}</p>
-<p>{{appointment.title}}</p>
-<p>{{appointment.date}}</p>
+<div>
+    <input [(ngModel)]="newAppointmentTitle" placeholder="Appointment desctiption" />
+    <input [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date" />
+    <button>Add</button>
+</div>
+
+

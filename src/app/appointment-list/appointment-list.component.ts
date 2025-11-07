@@ -9,12 +9,9 @@ import { Appointment } from '../models/appointment';
 
 export class AppointmentListComponent {
   
-  // property
-  appointment: Appointment = {
-    id: 1,
-    title: 'Take dog for a walk',
-    date: new Date('03-09-2025')
-  };
+  // properties
+  newAppointmentTitle: string = "";
+  newAppointmentDate: Date = new Date();
+  appointments: Appointment[] = []
 
-  
 }
