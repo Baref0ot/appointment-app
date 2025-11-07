@@ -12,4 +12,10 @@
     <button (click)="addAppointment()" >Add</button>
 </div>
 
-
+<!-- use *ngFor="let value of values" to foreach loop -  we use one-way data binding using {{}} because we only want to read. We don't want to edit our appointments here.-->
+<ul>
+    <li *ngFor="let appointment of appointments; index as i">
+       {{appointment.title}} {{appointment.date | date:'dd.MM.yyy'}}
+       <button (click)="deleteAppointment(i)">delete</button>
+    </li>
+</ul>

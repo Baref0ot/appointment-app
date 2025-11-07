@@ -39,12 +39,14 @@ export class AppointmentListComponent {
       // after the appointment is added clear the form fields in the template
       this.newAppointmentTitle = "";
       this.newAppointmentDate = new Date();
-
-      alert(this.appointments.length);
-      
     }else{
       alert("Please provide valid appointment details.");
     }
   }// end addAppointment
+
+
+  deleteAppointment(index:number) {
+    this.appointments.splice(index,1);
+  }// end deletetAppointment
 
 }
