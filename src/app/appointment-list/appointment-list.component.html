@@ -9,7 +9,7 @@
 <div>
     <input [(ngModel)]="newAppointmentTitle" placeholder="Appointment desctiption" />
     <input [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date" />
-    <button>Add</button>
+    <button (click)="addAppointment()" >Add</button>
 </div>
 
 

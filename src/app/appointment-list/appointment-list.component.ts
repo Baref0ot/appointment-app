@@ -14,4 +14,10 @@ export class AppointmentListComponent {
   newAppointmentDate: Date = new Date();
   appointments: Appointment[] = []
 
+
+  // methods
+  addAppointment() {
+    
+  }
+
 }
