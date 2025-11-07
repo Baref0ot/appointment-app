@@ -1,7 +1,7 @@
 export interface Appointment {
 
     // define properties
-    id: number,
+    id: string,
     title: string,
     date: Date
 

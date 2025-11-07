@@ -16,8 +16,35 @@ export class AppointmentListComponent {
 
 
   // methods
+  generateGuid(): string {
+  
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = Math.random() * 16 | 0;
+      const v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }// end generateGuid
+
   addAppointment() {
-    
-  }
+    if(this.newAppointmentTitle.trim().length && this.newAppointmentDate){
+
+      let newAppointment: Appointment = {
+        id: this.generateGuid(),
+        title: this.newAppointmentTitle,
+        date: this.newAppointmentDate
+      }
+
+      this.appointments.push(newAppointment);
+
+      // after the appointment is added clear the form fields in the template
+      this.newAppointmentTitle = "";
+      this.newAppointmentDate = new Date();
+
+      alert(this.appointments.length);
+      
+    }else{
+      alert("Please provide valid appointment details.");
+    }
+  }// end addAppointment
 
 }
